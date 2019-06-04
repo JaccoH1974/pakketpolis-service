@@ -2,7 +2,6 @@ package nl.bank.pakketpolis;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl.bank.pakketpolis.PakketPolis;
 import nl.bank.pakketpolis.interfaces.levensverzekering.LevensVerzekeringRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

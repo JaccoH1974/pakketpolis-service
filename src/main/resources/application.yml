@@ -6,11 +6,8 @@ spring:
 levensverzekering-service:
   host: localhost
   port: 8090
-stubrunner:
-  ids: 'nl.bank:levensverzekering-service:+:stubs:8090'
-  repositoryRoot: https://repo.spring.io/libs-snapshot
 logging:
   level:
     root: INFO
-    nl.bank.levensverzekeringservice: DEBUG
+    nl.bank.pakketpolis: DEBUG
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

@@ -24,11 +24,11 @@ public class PakketPolisService {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strGeboortedatum = dateFormat.format(geboortedatum);
 
-        Levensverzekering levensverzekering = restClient.getPremie(verzekerdkapitaal.toString(), strGeboortedatum, looptijd.toString());
-        pakketPolis.getLevensverzekering().setNaam("Levensverzekering");
-        pakketPolis.getLevensverzekering().setPremie(levensverzekering.getPremie());
         pakketPolis.getLevensverzekering().setVerzekerdbedrag(verzekerdkapitaal);
         pakketPolis.setKortingspercentage(2.0d);
+        pakketPolis.getLevensverzekering().setNaam("Levensverzekering");
+        Levensverzekering levensverzekering = restClient.getPremie(verzekerdkapitaal.toString(), strGeboortedatum, looptijd.toString());
+        pakketPolis.getLevensverzekering().setPremie(levensverzekering.getPremie());
         return pakketPolis;
     }
 }

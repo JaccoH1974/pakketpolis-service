@@ -21,13 +21,13 @@ request:
 response:
   status: 200
   body:
-    "31.25"
+    premie: "31.25"
   matchers:
     headers:
       - key: Content-Type
         regex: "application/json.*"
     body:
-      - path: $
+      - path: $.['premie']
         type: by_regex
         predefined: number
   headers:

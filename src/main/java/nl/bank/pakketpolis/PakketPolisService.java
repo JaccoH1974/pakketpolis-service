@@ -3,6 +3,7 @@ package nl.bank.pakketpolis;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import nl.bank.pakketpolis.interfaces.levensverzekering.LevensVerzekeringRestClient;
+import nl.bank.pakketpolis.interfaces.levensverzekering.Levensverzekering;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,9 @@ public class PakketPolisService {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strGeboortedatum = dateFormat.format(geboortedatum);
 
-        Double levensverzekeringPremie = restClient.getPremie(verzekerdkapitaal.toString(), strGeboortedatum, looptijd.toString());
+        Levensverzekering levensverzekering = restClient.getPremie(verzekerdkapitaal.toString(), strGeboortedatum, looptijd.toString());
         pakketPolis.getLevensverzekering().setNaam("Levensverzekering");
-        pakketPolis.getLevensverzekering().setPremie(levensverzekeringPremie);
+        pakketPolis.getLevensverzekering().setPremie(levensverzekering.getPremie());
         pakketPolis.getLevensverzekering().setVerzekerdbedrag(verzekerdkapitaal);
         pakketPolis.setKortingspercentage(2.0d);
         return pakketPolis;

@@ -45,7 +45,10 @@ public class PakketPolisServiceTest {
                 .willReturn(WireMock.aResponse()
                         .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                         .withStatus(HttpStatus.SC_OK)
-                        .withBody("33.5")));
+                        .withBody("{\n" +
+                                "    \"premie\": 33.5,\n" +
+                                "    \"risicoprofiel\": \"risico matig\"\n" +
+                                "}")));
     }
 
     @Test
